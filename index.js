@@ -17,11 +17,11 @@ app.use(bodyParser.json())
 
 // Index route
 app.get('/', function (req, res) {
-    res.send('Hello sup!')
+    res.send('Hello Jason!')
 })
 
 // for Facebook verification
-app.get('/webhook', function (req, res) {
+app.get('/webhook/', function (req, res) {
     if (req.query['hub.verify_token'] === token) {
         res.send(req.query['hub.challenge'])
     }
@@ -35,7 +35,7 @@ app.listen(app.get('port'), function() {
 
 
 // API End Point 
-app.post('/webhook', function (req, res) {
+app.post('/webhook/', function (req, res) {
   var data = req.body;
 
   // Make sure this is a page subscription
