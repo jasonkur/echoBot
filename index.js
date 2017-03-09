@@ -21,8 +21,8 @@ app.get('/', function (req, res) {
 })
 
 // for Facebook verification
-app.get('/webhook/', function (req, res) {
-    if (req.query['hub.verify_token'] === token) {
+app.get('/webhook', function (req, res) {
+    if (req.query['hub.verify_token'] === password) {
         res.send(req.query['hub.challenge'])
     }
     res.send('Error, wrong token')
@@ -35,7 +35,7 @@ app.listen(app.get('port'), function() {
 
 
 // API End Point 
-app.post('/webhook/', function (req, res) {
+app.post('/webhook', function (req, res) {
   var data = req.body;
 
   // Make sure this is a page subscription
