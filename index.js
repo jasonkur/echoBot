@@ -18,11 +18,11 @@ app.use(bodyParser.json())
 // Index route
 app.get('/', function (req, res) {
     res.send('Hello Jason!')
-})
+});
 
 app.get('/webhook', function(req, res) {
   if (req.query['hub.mode'] === 'subscribe' &&
-      req.query['hub.verify_token'] === 'password' {
+      req.query['hub.verify_token'] === 'password') {
     console.log("Validating webhook");
     res.status(200).send(req.query['hub.challenge']);
   } else {
