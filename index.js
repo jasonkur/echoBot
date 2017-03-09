@@ -96,13 +96,11 @@ function receivedMessage(event) {
       default:
         sendTextMessage(senderID, messageText);
     }
-  } 
-  else if (messageAttachments) {
+  } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
-  }
-  else if (event.postback) {
-    receivedPostback(event);
-  }
+  } else if (event.postback) {
+          receivedPostback(event);
+    } 
 }
 
 function receivedPostback(event) {
